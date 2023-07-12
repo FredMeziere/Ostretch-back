@@ -4,7 +4,7 @@ const sequelize = require("./sequelize-client");
 class Post extends Model { }
 
 Post.init({
-    post_title: {
+    title: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -16,18 +16,10 @@ Post.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    category_id: {
+    category_post_id: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    user_id: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    message_id: {
-        type: DataTypes.STRING,
-        allowNull: false
-    }
 }, {
     sequelize,
     tableName: "post"

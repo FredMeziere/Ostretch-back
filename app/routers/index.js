@@ -7,7 +7,7 @@ const userRouter = require("./userRouter");
 const favoriteRouter = require("./favoriteRouter");
 const contactRouter = require("./contactRouter");
 const categoryRouter = require("./categoryRouter");
-const postRouter = require("./postRouter")
+const postRouter = require("./forumRouter")
 
 // Création du router principal
 const router = Router();

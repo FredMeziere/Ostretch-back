@@ -1,6 +1,6 @@
 const { Post } = require("../models");
 
-const postController = {
+const forumController = {
 
     async getAllPosts(req, res) {
         // Récuprération de tous les posts
@@ -112,4 +112,4 @@ const postController = {
     },
 }
 
-module.exports = postController;
+module.exports = forumController;

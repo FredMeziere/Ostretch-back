@@ -1,7 +1,7 @@
 const express = require('express');
 
 // on importe nos controllers
-const postController = require('../controllers/postController');
+const postController = require('../controllers/forumController');
 const userMiddleware = require('../middleware/userMiddleware');
 
 const router = express.Router();

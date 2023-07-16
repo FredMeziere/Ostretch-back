@@ -8,10 +8,6 @@ Post.init({
         type: DataTypes.STRING,
         allowNull: false
     },
-    main_image: {
-        type: DataTypes.STRING,
-        allowNull: true
-    },
     description_content: {
         type: DataTypes.STRING,
         allowNull: false

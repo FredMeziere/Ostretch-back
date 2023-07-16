@@ -8,7 +8,7 @@ PostCategory.init({
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    category_id: {
+    category_post_id: {
         type: DataTypes.INTEGER,
         allowNull: false
     }

@@ -1,7 +1,6 @@
 const { Post } = require("../models");
 const { Message } = require("../models");
 
-
 const forumController = {
 /* 
 ----------------------------------------------
@@ -19,7 +18,7 @@ const forumController = {
             return res.status(500).json({ error: "Internal server error" });
         }
     },
-    
+
     async getOnePost(req, res) {
         
         try {
@@ -207,9 +206,8 @@ const forumController = {
             return res.status(500).json({ error: "Erreur serveur interne" });
         }
     },
-
-
 }
+
 
 
 

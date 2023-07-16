@@ -27,7 +27,6 @@ const userMiddleware = {
         }
     },
 
-
     isUserLogged(req, res, next) {
         //vérifie s'il y a un token / si je suis connecté / si il y a user.id dans le token
         //message d'erreur si token non trouvé
@@ -40,9 +39,6 @@ const userMiddleware = {
         next();
     },
 
-
-
-
     //vérifier si la personne est admin req.token.role_id
     isAdmin(req,res,next) {
 
@@ -51,25 +47,6 @@ const userMiddleware = {
         } else {
             res.status(403).json({ message: 'Access denied' });
         }
-        // const userId = req.token.sub
-
-
-        // // Récupérer l'utilisateur correspondant dans la base de données
-        // User.findByPk(userId)
-        //     .then(user => {
-        //         // Vérifier si l'utilisateur a le rôle autorisé
-        //         if (user.role_id===1) {
-        //             next(); // L'utilisateur est administrateur, on passe au middleware suivant
-                
-        // })
-        // .catch(err => {
-        //     console.log(err);
-        //     res.status(500).json({ message: 'Server error' }); // En cas d'erreur serveur, on renvoie une erreur 500
-        // });
-        // }
-        // Exemple d'utilisation : vérifier si l'utilisateur a le rôle 'admin'
-        //checkUserRole(req.token, ['admin']);
-
     }
 }
 

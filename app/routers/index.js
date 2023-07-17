@@ -20,7 +20,7 @@ router.use("/", userRouter);
 router.use("/user/me/stretches", favoriteRouter);
 router.use("/", contactRouter);
 router.use("/forum", forumRouter)
-router.get('/categoriespost', categoryPostRouter);
+router.get("/categoriespost", categoryPostRouter);
 
 // On exporte le routeur principal
 module.exports = router;

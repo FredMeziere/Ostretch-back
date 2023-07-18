@@ -1,8 +1,9 @@
 const express = require('express');
 
 // on importe nos controllers
-const forumController = require('../controllers/forumController');
+const forumController = require('../controllers/postController');
 const userMiddleware = require('../middleware/userMiddleware');
+const messageController = require('../controllers/messageController');
 
 const router = express.Router();
 
@@ -14,11 +15,11 @@ router.patch('/posts/:id', userMiddleware.isUserLogged, userMiddleware.isAdmin, 
 router.delete('/posts/:id', userMiddleware.isUserLogged, userMiddleware.isAdmin, forumController.deletePost);
 
 // Routes pour les Messages
-router.get('/posts/:postId/messages', forumController.getAllMessages);
-router.get('/posts/:postId/messages/:id', forumController.getOneMessage);
-router.post('/posts/:postId/messages', userMiddleware.isUserLogged, forumController.createMessage);
-router.patch('/posts/:postId/messages/:id', userMiddleware.isUserLogged, forumController.updateMessage);
-router.delete('/posts/:postId/messages/:id', userMiddleware.isUserLogged, forumController.deleteMessage);
+router.get('/posts/:postId/messages', messageController.getAllMessages);
+router.get('/posts/:postId/messages/:id', messageController.getOneMessage);
+router.post('/posts/:postId/messages', userMiddleware.isUserLogged, messageController.createMessage);
+router.patch('/posts/:postId/messages/:id', userMiddleware.isUserLogged, messageController.updateMessage);
+router.delete('/posts/:postId/messages/:id', userMiddleware.isUserLogged, messageController.deleteMessage);
 
 // on exporte le router 
 module.exports = router;

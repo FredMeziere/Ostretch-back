@@ -1,6 +1,5 @@
 const { Post } = require("../models");
 
-
 const postController = {
 /* 
 ----------------------------------------------
@@ -11,6 +10,7 @@ const postController = {
         // Récuprération de tous les posts
         try {
             const posts = await Post.findAll();
+
             const filtredPosts = posts.map(post => {
                 return {
                     id : post.id,
@@ -45,8 +45,8 @@ const postController = {
             const {
                 title,
                 description_content,
-                category_post_id
-            } =req.body;
+                category_post_id,
+            } = req.body;
 
             const newPost = await Post.create({
                 title,
@@ -71,10 +71,10 @@ const postController = {
 
     async updatePost(req, res) {
 
-        const { title, description_content, main_image, category_post_id } = req.body;
+        const { title, description_content, category_post_id } = req.body;
 
         // Si aucun champs n'est modifié,
-        if (!title && !description_content && !main_image  && !category_post_id) {
+        if (!title && !description_content && !category_post_id) {
             return res.status(400).json({ error: "Invalid body. Should provide at least a 'title', 'description_content', 'main_image', 'description_image' or 'category_id' property" });
         }
 
@@ -88,10 +88,6 @@ const postController = {
 
         if (description_content !== undefined) { // Si il y a une nouveau pseudo
             postToUpdate.description_content = description_content;
-        }
-
-        if (main_image !== undefined) { // Si il y a une nouveau pseudo
-            postToUpdate.main_image = main_image;
         }
 
         if (category_post_id !== undefined) { // Si il y a une nouveau pseudo

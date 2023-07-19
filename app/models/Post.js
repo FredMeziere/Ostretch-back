@@ -13,7 +13,7 @@ Post.init({
         allowNull: false
     },
     category_post_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false
     },
 }, {

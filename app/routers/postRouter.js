@@ -11,9 +11,9 @@ const router = express.Router();
 router.get('/', postController.getAllPosts);
 router.get('/:id', postController.getOnePost);
 
-router.post('/', userMiddleware.isUserLogged, userMiddleware.isUserLogged, postController.createPost);
-router.patch('/:id', userMiddleware.isUserLogged, userMiddleware.isUserLogged, postController.updatePost);
-router.delete('/:id', userMiddleware.isUserLogged, userMiddleware.isUserLogged, postController.deletePost);
+router.post('/', userMiddleware.isAdmin, userMiddleware.isUserLogged, postController.createPost);
+router.patch('/:id', userMiddleware.isAdmin, userMiddleware.isUserLogged, postController.updatePost);
+router.delete('/:id', userMiddleware.isAdmin, userMiddleware.isUserLogged, postController.deletePost);
 
 // Routes pour les Messages
 router.get('/posts/:postId/messages', messageController.getAllMessages);

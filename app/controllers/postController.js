@@ -1,7 +1,7 @@
 const { Post } = require("../models");
 
 
-const forumController = {
+const postController = {
 /* 
 ----------------------------------------------
             Gestion des posts
@@ -11,8 +11,15 @@ const forumController = {
         // Récuprération de tous les posts
         try {
             const posts = await Post.findAll();
-            res.status(200).json(posts);
-            // Permet de d'indique que le serveur a rencontré un problème inattendu qui l'empêche de répondre à la requête.         
+            const filtredPosts = posts.map(post => {
+                return {
+                    id : post.id,
+                    title: post.title,
+                    description_content: post.description_content,
+                    categories_post_id: post.category_post_id
+                };
+            });
+            res.status(200).json(filtredPosts);
         } catch (error) {
             console.log(error);
             return res.status(500).json({ error: "Internal server error" });
@@ -38,13 +45,13 @@ const forumController = {
             const {
                 title,
                 description_content,
-                category_id
+                category_post_id
             } =req.body;
 
             const newPost = await Post.create({
                 title,
                 description_content,
-                category_id
+                category_post_id
             });
 
             res.status(201).json({
@@ -52,7 +59,7 @@ const forumController = {
                     id: newPost.id,
                     title: newPost.title,
                     description_content: newPost.description_content,
-                    category_id: newPost.category_id
+                    category_post_id: newPost.category_post_id
                 },
             });
 
@@ -64,10 +71,10 @@ const forumController = {
 
     async updatePost(req, res) {
 
-        const { title, description_content, main_image, category_id } = req.body;
+        const { title, description_content, main_image, category_post_id } = req.body;
 
         // Si aucun champs n'est modifié,
-        if (!title && !description_content && !main_image  && !category_id) {
+        if (!title && !description_content && !main_image  && !category_post_id) {
             return res.status(400).json({ error: "Invalid body. Should provide at least a 'title', 'description_content', 'main_image', 'description_image' or 'category_id' property" });
         }
 
@@ -87,8 +94,8 @@ const forumController = {
             postToUpdate.main_image = main_image;
         }
 
-        if (category_id !== undefined) { // Si il y a une nouveau pseudo
-            postToUpdate.category_id = category_id;
+        if (category_post_id !== undefined) { // Si il y a une nouveau pseudo
+            postToUpdate.category_post_id = category_post_id;
         }
 
         await postToUpdate.save();
@@ -116,4 +123,4 @@ const forumController = {
     },
 }
 
-module.exports = forumController;
+module.exports = postController;

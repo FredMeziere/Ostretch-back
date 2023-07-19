@@ -1,7 +1,5 @@
 const { Message } = require("../models"); 
   
- 
-
 const messageController = {
     /* 
 ----------------------------------------------
@@ -78,8 +76,6 @@ const messageController = {
         res.status(204).end();
     },
 
-
-    // suppression du post avec l'identifiant spécifié
     async deleteMessage(req, res) {
 
         try {

@@ -9,9 +9,7 @@ const rateLimit = require("express-rate-limit");
 const userMiddleware = require("./app/middleware/userMiddleware");
 
 const router = require("./app/routers");
-// const userMiddleware = require("./app/middleware/userMiddleware");
 
-// Créer l'app
 const app = express();
 
 // On autorise les requêtes Cross-Origin, qui par défaut seraient bloquées.
@@ -47,7 +45,7 @@ app.use(userMiddleware.decodeToken);
 app.use(router);
 
 // Lancer l'app
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`);
 });

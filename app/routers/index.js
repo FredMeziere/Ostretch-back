@@ -9,6 +9,7 @@ const contactRouter = require("./contactRouter");
 const categoryRouter = require("./categoryRouter");
 const postRouter = require("./postRouter")
 const categoryPostRouter = require("./categoryPostRouter")
+
 // Création du router principal
 const router = Router();
 
@@ -19,7 +20,7 @@ router.use("/", userRouter);
 router.use("/user/me/stretches", favoriteRouter);
 router.use("/", contactRouter);
 router.use("/posts", postRouter);
-router.use("/postcategories", categoryPostRouter);
+router.use("/postscategories", categoryPostRouter);
 
 // On exporte le routeur principal
 module.exports = router;

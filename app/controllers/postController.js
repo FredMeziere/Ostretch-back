@@ -20,9 +20,10 @@ const postController = {
                 };
             });
             res.status(200).json(filtredPosts);
+
         } catch (error) {
-            console.log(error);
-            return res.status(500).json({ error: "Internal server error" });
+            
+            return res.status(500).json({ error: "findAll" });
         }
     },
 
@@ -35,7 +36,7 @@ const postController = {
 
         } catch (error) {
             console.log(error);
-            return res.status(500).json({ error: "Internal server error" });
+            return res.status(500).json({ error: "OnePost" });
         }
     },
 
@@ -65,7 +66,7 @@ const postController = {
 
         } catch (error) {
             console.log(error);
-            return res.status(500).json({ error: "Internal server error" });
+            return res.status(500).json({ error: "create post" });
         }
     },
 

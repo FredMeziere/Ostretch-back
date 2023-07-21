@@ -11,7 +11,7 @@ const categoryPostController = {
         // Permet de d'indique que le serveur a rencontré un problème inattendu qui l'empêche de répondre à la requête.         
         } catch (error) {
             console.log(error);
-            return res.status(500).json({ error: "Internal server error" });
+            return res.status(500).json({ error: "findAll category" });
         }
     },
 }
